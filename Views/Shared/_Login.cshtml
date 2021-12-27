@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+
+        figure {
+            display: inline-block;
+            margin: 20px; /* adjust as needed */
+        }
+
+            figure img {
+                vertical-align: top;
+            }
+
+            figure figcaption {
+                color: white;
+                font-size: 30px;
+                line-height:30px;
+                text-align: center;
+            }
+
+        .sidebar {
+            line-height: 4.5;
+            height: 100%;
+            width: 20%;
+            background: #312450;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            overflow-x: hidden;
+            padding-top: 16px;
+        }
+
+        .sidebar a {
+                padding: 6px 8px 6px 16px;
+                text-decoration: none;
+                font-size: 20px;
+                color: #818181;
+                text-align: left;
+                transform: translateY(-50%);
+                letter-spacing: 0.4em;
+                font-size: 0.85em;
+                transition: all ease-out 300ms;
+                margin: 0 15%;
+                display: block;
+        }
+
+         .sidebar a:hover {
+                    color: #f1f1f1;
+         }
+
+         .main {
+            margin-left: 160px; /* Same as the width of the sidenav */
+            padding: 0px 10px;
+         }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <figure>
+            <img src="~/js/admin3.png" width="150" height="120">
+            <figcaption> Adminstrator </figcaption>
+        </figure>
+        <a asp-controller="Home" asp-action="Index"><i class="fa fa-fw fa-home"></i> Home</a>
+        <a asp-controller="Admins" asp-action="Details" asp-route-id="1"><i class="fa fa-fw fa-wrench"></i> Privacy</a>
+        <a asp-controller="Users" asp-action="Index"><i class="fa fa-fw fa-user"></i> View Users</a>
+        <a asp-controller="Users" asp-action="Create"><i class="fa fa-fw fa-plus-square"></i> Add Users</a>
+        <a asp-controller="Users" asp-action="Login"><i class="fa fa-fw fa-sign-out fa-lg"></i> Logout </a>
+
+    </div>
+    
+
+  <div class="container">
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
+    
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
